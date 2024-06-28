@@ -96,7 +96,9 @@ class DexScreenerClient:
         self._validate_token_address(token_address)
 
         # TODO: Check and Update for the valid API endpoint of DexScreener
-        res = requests.get(f"https://api.dexscreener.com/token/{token_address}")
+        res = requests.get(
+            f"https://api.dexscreener.com/latest/dex/tokens/{token_address}"
+        )
         self._validate_response(res)
 
         return res.json()
@@ -118,8 +120,8 @@ class DexScreenerClient:
         """
         self._validate_token_addresses(token_addresses)
 
-        res = requests.post(
-            "https://api.dexscreener.com/token/bulk", json={"tokens": token_addresses}
+        res = requests.get(
+            f"https://api.dexscreener.com/latest/dex/tokens/{','.join(token_addresses)}"
         )
         self._validate_response(res)
 
@@ -189,3 +191,14 @@ class DexScreenerClient:
                     max_liquidity_usd = liquidity_usd
                     max_entry = entry
         return max_entry
+
+
+# if __name__ == "__main__":
+#     be_client = DexScreenerClient()
+#     test_tokens = [
+#         "WskzsKqEW3ZsmrhPAevfVZb6PuuLzWov9mJWZsfDePC",
+#         "2uvch6aviS6xE3yhWjVZnFrDw7skUtf6ubc7xYJEPpwj",
+#         "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
+#     ]
+#     # print(be_client.fetch_prices_dex(token_addresses=test_tokens))
+#     print(be_client.fetch_token_overview(address=test_tokens[0]))
