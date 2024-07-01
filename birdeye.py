@@ -68,7 +68,6 @@ class BirdEyeClient:
             query_url,
             params={"list_address": ",".join(token_addresses)},
         )
-
         if resp.status_code != 200:
             raise InvalidTokens(InvalidTokens.message)
 
@@ -110,6 +109,7 @@ class BirdEyeClient:
         return overview
 
 
+# TODO: Uncomment this block to test the BirdEyeClient
 # if __name__ == "__main__":
 #     be_client = BirdEyeClient()
 #     test_tokens = [
@@ -118,3 +118,4 @@ class BirdEyeClient:
 #         "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
 #     ]
 #     print(be_client.fetch_prices(token_addresses=test_tokens))
+#     print(be_client.fetch_token_overview(address="WskzsKqEW3ZsmrhPAevfVZb6PuuLzWov9mJWZsfDePC")

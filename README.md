@@ -23,7 +23,7 @@ pip install -r requirements.txt
 Create a .env file in the root directory of the project and add the following:
 
 ```bash
-DEX_API_KEY=your_dex_api_key
+BIRD_EYE_TOKEN=your_dex_api_key
 ```
 
 ### Step 4: Run the program

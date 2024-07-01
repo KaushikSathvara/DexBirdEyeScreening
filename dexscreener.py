@@ -192,7 +192,7 @@ class DexScreenerClient:
                     max_entry = entry
         return max_entry
 
-
+# TODO: Uncomment the code below to test the DexScreenerClient
 # if __name__ == "__main__":
 #     be_client = DexScreenerClient()
 #     test_tokens = [
@@ -200,5 +200,5 @@ class DexScreenerClient:
 #         "2uvch6aviS6xE3yhWjVZnFrDw7skUtf6ubc7xYJEPpwj",
 #         "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
 #     ]
-#     # print(be_client.fetch_prices_dex(token_addresses=test_tokens))
+#     print(be_client.fetch_prices_dex(token_addresses=test_tokens))
 #     print(be_client.fetch_token_overview(address=test_tokens[0]))
